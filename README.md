@@ -78,8 +78,9 @@ $ cd mm-node-mailer
 $ npm install 
 ```
 
-Then run whichever example you want go to examples directory and run: 
+Then run whichever example you want:
 ```bash
+$ cd examples
 $ EMAIL=your.email@address.com node email 
 ```
 or
@@ -88,7 +89,7 @@ $ EMAIL=your.email@address.com node template-email
 ```
 You can also view live examples here:
 
-<a href="http://runnable.com/U-I3ooLFYVYguhni/mm-mongoose-connection-example-for-node-js-mongodb-and-express" target="_blank"><img src="https://runnable.com/external/styles/assets/runnablebtn.png" style="width:67px;height:25px;"></a>
+<a href="http://runnable.com/U-JRNyWPTT5A010Y/mm-node-mailer-example-for-node-js-nodemailer-email-and-email-templates" target="_blank"><img src="https://runnable.com/external/styles/assets/runnablebtn.png" style="width:67px;height:25px;"></a>
 
 ## Tests
 To run the test suite, first invoke the following command within the repo, installing the development dependencies:

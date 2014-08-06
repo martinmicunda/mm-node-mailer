@@ -2,7 +2,7 @@ var path = require("path"),
     mmMailer = require('..');
 
 if (!process.env.EMAIL) {
-    console.error('Provide email address where the email should be send by running follow command "EMAIL=your_email_address node email"');
+    console.error('Provide email address where the email should be send by running follow command "EMAIL=your_email_address node template-email"');
     process.exit(1);
 }
 
