@@ -10,8 +10,17 @@ A node module that send e-mails.
 $ npm install mm-node-mailer --save
 ```
 
-## Usages
+## Configuration
 The `mm-node-mailer` is based upon the awesome [Nodemailer](https://github.com/andris9/Nodemailer), so you will have to configure it before usage.
+
+##### Config options:
+* **config**: the nodemailer configuration. See [nodemailer-smtp-transport](https://github.com/andris9/nodemailer-smtp-transport) for full description of config fields, default: _{}_.
+* **mail**: the to, from, cc, etc, fields for all emails. See [e-mail-message-fields](https://github.com/andris9/Nodemailer#e-mail-message-fields) for full description of email fields, default has two attributes `templateName` and `templateContent`.
+    * **templateName**: the template folder name that is store in templates directory, default _''_
+    * **templateContent**: the template JSON content, default _{}_
+* **templatesDir**: the templates directory path, default _''_
+
+## Usage
 
 #### Text email
 ```js
