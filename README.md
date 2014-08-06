@@ -1,4 +1,4 @@
-[![NPM version](https://badge.fury.io/js/mm-node-mailer.svg)](http://badge.fury.io/js/mm-node-mailer)
+[![Build Status](https://secure.travis-ci.org/martinmicunda/mm-node-mailer.png)](http://travis-ci.org/martinmicunda/mm-node-mailer) [![NPM version](https://badge.fury.io/js/mm-node-mailer.svg)](http://badge.fury.io/js/mm-node-mailer)
 mm-node-mailer
 ==============
 
