@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+  - "0.10"
+
+notifications:
+  email:
+    recipients:
+      - martinmicunda@hotmail.com
+    on_success: never
+    on_failure: always
+
+# install dependencies necessary to run this build
+install:
+  - npm install --quiet
+
+script:
+  - npm test
+
