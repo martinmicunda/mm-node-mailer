@@ -1,7 +1,7 @@
 'use strict';
 
 var test = require('tape'),
-    path = require("path"),
+    path = require('path'),
     ojmailer = require('..');
 
 // ensure the NODE_ENV is set to 'test' so we don't send out an email

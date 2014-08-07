@@ -34,11 +34,13 @@
     "scripts": {
         "test": "tape coverify ./test/*.test.js | tap-spec",
         "test-coverage": "browserify -t coverify test/*.js --bare | node | coverify",
+        "hint": "jshint .",
         "dep-check": "david"
     },
     "pre-commit": [
         "test",
-        "dep-check"
+        "dep-check",
+        "hint"
     ],
     "dependencies": {
         "nodemailer": "1.1.1",
@@ -50,7 +52,8 @@
         "coverify": "1.0.*",
         "browserify": "5.9.*",
         "you-shall-not-commit": "*",
-        "david": "3.3.*"
+        "david": "3.3.*",
+        "jshint": "2.5.*"
     },
     "licenses": {
         "type": "MIT",
