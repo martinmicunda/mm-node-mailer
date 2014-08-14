@@ -61,7 +61,6 @@ var extend         = require('util')._extend,
  *      });
  *  ```
  */
-/*jshint latedef: false*/
 module.exports = Mailer;
 
 /**
