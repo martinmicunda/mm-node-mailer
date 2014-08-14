@@ -32,34 +32,9 @@ var extend         = require('util')._extend,
     emailTemplates = require('email-templates');
 
 /**
- * Define default mailer options.
- *
- * @type {Object} defaultOptions - the default mailer options
- * @type {Object} defaultOptions.config - the nodemailer configuration. See {@link https://github.com/andris9/nodemailer-smtp-transport `nodemailer-smtp-transport`} for full description of config fields.
- * @type {Object} defaultOptions.mail - the to, from, cc, etc, fields for all emails. See {@link https://github.com/andris9/Nodemailer#e-mail-message-fields `e-mail-message-fields`} for full description of email fields.
- * @type {string} defaultOptions.mail.templateName - (optional) the template folder name that is store in templates directory
- * @type {Object} defaultOptions.mail.templateContent - (optional) the template JSON content
- * @type {string} defaultOptions.templatesDir - (optional) the templates directory path
- * @type {Object} defaultOptions.templateEngineOptions - (optional) the template engine options e.g. helpers, partials etc. See {@link https://github.com/niftylettuce/node-email-templates#templating-language-options-eg-ejs-custom-tags `node-email-templates`} for options.
- * @private
- */
-var defaultOptions = {
-    config: {},
-    mail: {
-        templateName: '',
-        templateContent: {}
-    },
-    templatesDir: '',
-    templateEngineOptions: {}
-};
-
-/**
  * A node module for sending e-mails.
  *
  * @module mm-node-mailer
- * @class Mailer
- * @constructor
- *
  * @example
  *  ```js
  *      var mailer = new mmMailer({
@@ -85,10 +60,42 @@ var defaultOptions = {
  *          console.log('An e-mail has been sent successfully. Server responded with "' + respond + '"');
  *      });
  *  ```
+ */
+/*jshint latedef: false*/
+module.exports = Mailer;
+
+/**
+ * Define default mailer options.
+ *
+ * @type {Object} defaultOptions - the default mailer options
+ * @type {Object} defaultOptions.config - the nodemailer configuration. See {@link https://github.com/andris9/nodemailer-smtp-transport `nodemailer-smtp-transport`} for full description of config fields.
+ * @type {Object} defaultOptions.mail - the to, from, cc, etc, fields for all emails. See {@link https://github.com/andris9/Nodemailer#e-mail-message-fields `e-mail-message-fields`} for full description of email fields.
+ * @type {string} defaultOptions.mail.templateName - (optional) the template folder name that is store in templates directory
+ * @type {Object} defaultOptions.mail.templateContent - (optional) the template JSON content
+ * @type {string} defaultOptions.templatesDir - (optional) the templates directory path
+ * @type {Object} defaultOptions.templateEngineOptions - (optional) the template engine options e.g. helpers, partials etc. See {@link https://github.com/niftylettuce/node-email-templates#templating-language-options-eg-ejs-custom-tags `node-email-templates`} for options.
+ * @private
+ */
+var defaultOptions = {
+    config: {},
+    mail: {
+        templateName: '',
+        templateContent: {}
+    },
+    templatesDir: '',
+    templateEngineOptions: {}
+};
+
+/**
+ * A `Mailer` constructor.
+ *
+ * @class Mailer
+ * @constructor
  *
  * @param {Object} options - custom mailer configuration options
  */
-function Mailer(options){
+function Mailer(options) {
+    if (!(this instanceof Mailer)) {return new Mailer(options);}
     // extend default options
     this.options = extend(defaultOptions, options);
     // create transporter that is able to send mail
@@ -171,6 +178,3 @@ Mailer.prototype.close = function() {
 Mailer.prototype.getOptions = function() {
     return this.options;
 };
-
-// exports
-module.exports = Mailer;
