@@ -19,6 +19,9 @@ The `mm-node-mailer` is based upon the awesome [Nodemailer](https://github.com/a
     * **templateName**: the template folder name that is store in templates directory, default _''_
     * **templateContent**: the template JSON content, default _{}_
 * **templatesDir**: the templates directory path, default _''_
+* **templateEngineOptions**: the template engine options e.g. helpers, partials etc. See [node-email-templates](https://github.com/niftylettuce/node-email-templates#templating-language-options-eg-ejs-custom-tags) for options, default _{}_
+
+> **Note:** The [`handlebars`](http://handlebarsjs.com/) is use as template engine in this module.
 
 ## Usage
 
@@ -60,7 +63,14 @@ var mailer = mmMailer({
         from: 'test@gmail.com',
         subject: 'Newsletter'
     },
-    templatesDir: path.resolve(__dirname + '/templates')
+    templatesDir: path.resolve(__dirname + '/templates'),
+    templateEngineOptions: {
+        helpers: {
+            uppercase: function (context) {
+                return context.toUpperCase();
+            }
+        }
+    }
 });
 var mailOptions = {
     to: 'your.email@address.com',

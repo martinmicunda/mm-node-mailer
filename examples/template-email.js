@@ -19,7 +19,14 @@ var mailer = mmMailer({
         from: 'do-not-reply@gmail.com', // sender address
         subject: 'MM newsletter' // Subject line
     },
-    templatesDir: path.resolve(__dirname + '/templates')
+    templatesDir: path.resolve(__dirname + '/templates'),
+    templateEngineOptions: {
+        helpers: {
+            uppercase: function (context) {
+                return context.toUpperCase();
+            }
+        }
+    }
 });
 
 // add additional mail information that will extend 'mailer.mail' data
