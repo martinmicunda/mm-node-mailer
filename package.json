@@ -1,6 +1,6 @@
 {
     "name": "mm-node-mailer",
-    "description": "A node module that send e-mails",
+    "description": "A node module for sending e-mails",
     "version": "0.0.4",
     "author": {
         "name": "Martin Micunda",
@@ -26,7 +26,6 @@
     ],
     "files": [
         "index.js",
-        "lib/",
         "README.md",
         "LICENSE"
     ],

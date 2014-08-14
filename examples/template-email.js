@@ -7,7 +7,7 @@ if (!process.env.EMAIL) {
 }
 
 // create and configure mailer
-var mailer = mmMailer({
+var mailer = new mmMailer({
     config: {
         service: 'Gmail',
         auth: {

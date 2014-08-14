@@ -2,7 +2,7 @@
 mm-node-mailer
 ==============
 
-A node module that send e-mails.
+A node module for sending e-mails.
 
 ## Installation
 
@@ -27,7 +27,7 @@ The `mm-node-mailer` is based upon the awesome [Nodemailer](https://github.com/a
 
 #### Text email
 ```js
-var mailer = mmMailer({
+var mailer = new mmMailer({
     config: {
         service: 'Gmail',
         auth: {
@@ -39,8 +39,8 @@ var mailer = mmMailer({
         from: 'test@gmail.com',
         to: 'your.email@address.com',
         subject: 'Hello',
-        text: 'Hello world ✔',
-        html: '<b>Hello world ✔</b>'
+        text: 'Hello world!',
+        html: '<b>Hello world!</b>'
     }
 });
 mailer.send({}, function (err, data) {
@@ -51,7 +51,7 @@ mailer.send({}, function (err, data) {
 
 #### Template email
 ```js
-var mailer = mmMailer({
+var mailer = new mmMailer({
     config: {
         service: 'Gmail',
         auth: {

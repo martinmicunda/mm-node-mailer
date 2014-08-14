@@ -8,7 +8,7 @@ var test = require('tape'),
 process.env.NODE_ENV = 'test';
 
 test('it should return an error when sender email address is missing', function(t) {
-    var mailer = mmMailer({});
+    var mailer = new mmMailer({});
     mailer.send({mail: {to: 'test@test.com'}}, function(err) {
         t.equal(err.toString(), 'Error: Sender email address required');
         t.end();
@@ -17,7 +17,7 @@ test('it should return an error when sender email address is missing', function(
 });
 
 test('it should return an error when receiver email address is missing', function(t) {
-    var mailer = mmMailer({mail: { from: 'test@test.com'}});
+    var mailer = new mmMailer({mail: { from: 'test@test.com'}});
     mailer.send({}, function(err) {
         t.equal(err.toString(), 'Error: Receiver email address required');
         t.end();
@@ -26,7 +26,7 @@ test('it should return an error when receiver email address is missing', functio
 });
 
 test('it should send a text email', function(t) {
-    var mailer = mmMailer({
+    var mailer = new mmMailer({
         mail: {
             from: 'test@test.com',
             to: 'test@test.com'
@@ -41,7 +41,7 @@ test('it should send a text email', function(t) {
 });
 
 test('it should send a template email', function(t) {
-    var mailer = mmMailer({
+    var mailer = new mmMailer({
         mail: {
             from: 'test@test.com',
             to: 'test@test.com',
