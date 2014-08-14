@@ -1,7 +1,7 @@
 {
     "name": "mm-node-mailer",
     "description": "A node module for sending e-mails",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "author": {
         "name": "Martin Micunda",
         "email": "martinmicunda@hotmail.com",
