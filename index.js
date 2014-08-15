@@ -123,6 +123,7 @@ Mailer.prototype.send = function(mailOptions, cb) {
         return cb(new Error('Receiver email address required'));
     }
 
+    // check if it should send text or template e-mail
     if(self.options.templatesDir && self.options.mail.templateName) {
         emailTemplates(self.options.templatesDir, self.options.templateEngineOptions, function (err, template) {
             if (err) {return cb(err);}
