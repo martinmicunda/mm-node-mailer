@@ -64,7 +64,7 @@ var extend         = require('util')._extend,
 module.exports = Mailer;
 
 /**
- * Define default mailer options.
+ * The default mailer options.
  *
  * @type {Object} defaultOptions - the default mailer options
  * @type {Object} defaultOptions.config - the nodemailer configuration. See {@link https://github.com/andris9/nodemailer-smtp-transport `nodemailer-smtp-transport`} for full description of config fields.
@@ -95,7 +95,8 @@ var defaultOptions = {
  */
 function Mailer(options) {
     if (!(this instanceof Mailer)) {return new Mailer(options);}
-    // extend default options
+
+    // extend `defaultOptions` with custom `options`
     this.options = extend(defaultOptions, options);
     // create transporter that is able to send mail
     this.transporter = nodemailer.createTransport(options.config);
