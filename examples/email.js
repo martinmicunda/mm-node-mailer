@@ -13,18 +13,16 @@ var mailer = new mmMailer({
             user: 'mmtest030@gmail.com',
             pass: 'U#[5&<3l(6'
         }
-    },
-    mail: {
-        from: 'MM Team <do-not-reply@gmail.com>', // sender address
-        subject: 'Hello', // Subject line
-        text: 'Hello world ✔', // plaintext body
-        html: '<b>Hello world ✔</b>' // html body
     }
 });
 
 // add additional mail information that will extend 'mailer.mail' data
 var mailOptions = {
-    to: process.env.EMAIL
+    from: 'MM Team <do-not-reply@gmail.com>', // sender address
+    to: process.env.EMAIL,
+    subject: 'Hello', // Subject line
+    text: 'Hello world ✔', // plaintext body
+    html: '<b>Hello world ✔</b>' // html body
 };
 
 var callback = function (err, data) {

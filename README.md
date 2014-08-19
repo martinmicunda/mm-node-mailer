@@ -15,13 +15,15 @@ The `mm-node-mailer` is based upon the awesome [Nodemailer](https://github.com/a
 
 ##### Config options:
 * **config**: the nodemailer configuration. See [nodemailer-smtp-transport](https://github.com/andris9/nodemailer-smtp-transport) for full description of config fields, default: _{}_.
-* **mail**: the to, from, cc, etc, fields for all emails. See [e-mail-message-fields](https://github.com/andris9/Nodemailer#e-mail-message-fields) for full description of email fields, default has two attributes `templateName` and `templateContent`.
-    * **templateName**: the template folder name that is store in templates directory, default _''_
-    * **templateContent**: the template JSON content, default _{}_
 * **templatesDir**: the templates directory path, default _''_
 * **templateEngineOptions**: the template engine options e.g. helpers, partials etc. See [node-email-templates](https://github.com/niftylettuce/node-email-templates#templating-language-options-eg-ejs-custom-tags) for options, default _{}_
 
 > **Note:** The [`handlebars`](http://handlebarsjs.com/) is use as template engine in this module.
+
+##### Mail options:
+* **mail**: the to, from, cc, etc, fields for all emails. See [e-mail-message-fields](https://github.com/andris9/Nodemailer#e-mail-message-fields) for full description of email fields, default has two attributes `templateName` and `templateContent`.
+    * **templateName**: the template folder name that is store in templates directory, default _''_
+    * **templateContent**: the template JSON content, default _{}_
 
 ## Usage
 
@@ -34,16 +36,16 @@ var mailer = new mmMailer({
             user: 'test@gmail.com',
             pass: 'password'
         }
-    },
-    mail: {
-        from: 'test@gmail.com',
-        to: 'your.email@address.com',
-        subject: 'Hello',
-        text: 'Hello world!',
-        html: '<b>Hello world!</b>'
     }
 });
-mailer.send({}, function (err, data) {
+var mailOptions = {
+    from: 'test@gmail.com',
+    to: 'your.email@address.com',
+    subject: 'Hello',
+    text: 'Hello world!',
+    html: '<b>Hello world!</b>'
+}
+mailer.send(mailOptions, function (err, data) {
     if (err) return console.error(err);
     console.log('An e-mail has been sent successfully. Server responded with "' + data + '"');
 });
@@ -59,10 +61,6 @@ var mailer = new mmMailer({
             pass: 'password'
         }
     },
-    mail: {
-        from: 'test@gmail.com',
-        subject: 'Newsletter'
-    },
     templatesDir: path.resolve(__dirname + '/templates'),
     templateEngineOptions: {
         helpers: {
@@ -73,7 +71,9 @@ var mailer = new mmMailer({
     }
 });
 var mailOptions = {
+    from: 'test@gmail.com',
     to: 'your.email@address.com',
+    subject: 'Newsletter'
     templateName: 'newsletter',
     templateContent: {
         email: 'mamma.mia@spaghetti.com',

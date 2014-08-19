@@ -15,10 +15,6 @@ var mailer = new mmMailer({
             pass: 'U#[5&<3l(6'
         }
     },
-    mail: {
-        from: 'do-not-reply@gmail.com', // sender address
-        subject: 'MM newsletter' // Subject line
-    },
     templatesDir: path.resolve(__dirname + '/templates'),
     templateEngineOptions: {
         helpers: {
@@ -32,6 +28,8 @@ var mailer = new mmMailer({
 // add additional mail information that will extend 'mailer.mail' data
 var mailOptions = {
     to: process.env.EMAIL,
+    from: 'do-not-reply@gmail.com', // sender address
+    subject: 'MM newsletter', // Subject line
     templateName: 'newsletter',
     templateContent: {
         email: 'mamma.mia@spaghetti.com',
