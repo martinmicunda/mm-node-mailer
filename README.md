@@ -73,7 +73,7 @@ var mailer = new mmMailer({
 var mailOptions = {
     from: 'test@gmail.com',
     to: 'your.email@address.com',
-    subject: 'Newsletter'
+    subject: 'Newsletter',
     templateName: 'newsletter',
     templateContent: {
         email: 'mamma.mia@spaghetti.com',
